@@ -1,0 +1,229 @@
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Cairo";
+  padding: 20px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 30px auto;
+  border: 3px solid #009688;
+  display: flex;
+  flex-direction: column;
+}
+.container .header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 3px solid #009688;
+  padding: 12px 15px;
+}
+
+.draw-and-letters {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+@media (max-width: 777px) {
+  .draw-and-letters {
+    flex-direction: column;
+  }
+}
+
+.draw {
+  width: 600px;
+  height: 425px;
+  position: relative;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-85%);
+}
+@media (max-width: 777px) {
+  .draw {
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+  }
+}
+@media (max-width: 500px) {
+  .draw {
+    width: 0;
+    transform: translate(0);
+    -webkit-transform: translate(0);
+    -moz-transform: translate(0);
+    -ms-transform: translate(0);
+    -o-transform: translate(0);
+  }
+}
+.draw img {
+  position: absolute;
+  transform: scale(0.6);
+  -webkit-transform: scale(0.6);
+  -moz-transform: scale(0.6);
+  -ms-transform: scale(0.6);
+  -o-transform: scale(0.6);
+}
+.draw img:first-child {
+  display: none;
+  top: 373px;
+  right: 190px;
+}
+.draw img:nth-child(2) {
+  display: none;
+  right: 293px;
+  top: -15px;
+}
+.draw img:nth-child(3) {
+  display: none;
+  right: 120px;
+  top: 80px;
+}
+.draw img:nth-child(4) {
+  display: none;
+  right: 164px;
+  top: 64px;
+}
+.draw img:nth-child(5) {
+  display: none;
+  right: 109px;
+  top: 124px;
+}
+.draw img:nth-child(6) {
+  display: none;
+  right: 129px;
+  top: 111px;
+}
+.draw img:nth-child(7) {
+  display: none;
+  right: 93px;
+  top: 206px;
+}
+.draw img:nth-child(8) {
+  display: none;
+  right: 93px;
+  top: 287px;
+}
+
+.draw.wrong-1 img:first-child {
+  display: block;
+}
+.draw.wrong-2 img:nth-child(2) {
+  display: block;
+}
+.draw.wrong-3 img:nth-child(3) {
+  display: block;
+}
+.draw.wrong-4 img:nth-child(4) {
+  display: block;
+}
+.draw.wrong-5 img:nth-child(5) {
+  display: block;
+}
+.draw.wrong-6 img:nth-child(6) {
+  display: block;
+}
+.draw.wrong-7 img:nth-child(7) {
+  display: block;
+}
+.draw.wrong-8 img:nth-child(8) {
+  display: block;
+}
+
+@media (max-width: 500px) {
+  .draw img {
+    transform: scale(0.6) translateX(150px);
+    -webkit-transform: scale(0.6) translateX(150px);
+    -moz-transform: scale(0.6) translateX(150px);
+    -ms-transform: scale(0.6) translateX(150px);
+    -o-transform: scale(0.6) translateX(150px);
+  }
+}
+.letters-container {
+  max-width: 400px;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px;
+  border-left: 3px solid #009688;
+}
+@media (max-width: 777px) {
+  .letters-container {
+    border: none;
+  }
+}
+.letters-container.no-more {
+  pointer-events: none;
+}
+
+.letters-container span {
+  width: 25px;
+  height: 25px;
+  background-color: #009688;
+  color: white;
+  display: grid;
+  place-content: center;
+  padding: 22px;
+  font-size: 22px;
+  cursor: pointer;
+}
+.letters-container span.clicked {
+  pointer-events: none;
+  background-color: #ccc;
+  color: black;
+}
+
+.guess-word-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.guess-word-container span {
+  width: 45px;
+  height: 45px;
+  border-bottom: 2px solid black;
+  background-color: #eee;
+  color: #009688;
+  font-size: 20px;
+  display: grid;
+  place-content: center;
+}
+.guess-word-container span.white-space {
+  border: none;
+  background-color: #009688;
+  color: white;
+  font-size: 25px;
+}
+
+.end,
+.win {
+  display: grid;
+  place-content: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 150, 136, 0.8);
+  left: 0;
+  top: 0;
+}
+.end span,
+.win span {
+  background-color: #aa2e25;
+  color: white;
+  padding: 15px;
+  font-size: 30px;
+  font-weight: 600;
+  border-radius: 5px;
+}
